@@ -43,7 +43,8 @@ public class HomeController {
 		QuestionDAO questionDao=new QuestionDAO();
 		Map<String, String> question=questionDao.getQuestion(level);
 		if(null==question.get("question")){
-			model.addAttribute("message", "congratulations , you have passed all the levels and your score is  ="+request.getSession().getAttribute("score"));
+			model.addAttribute("message", "congratulations , you have passed all the levels and your score is  ="+request.getSession().getAttribute("score")
+					+ "you level is = "+ level);
 			request.getSession().removeAttribute("level");
 			request.getSession().removeAttribute("score");
 			return "message";
